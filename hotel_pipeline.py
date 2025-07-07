@@ -178,7 +178,7 @@ def low_importance(X, y, n=8):
 
 def final_model(X, y):
     print("Final Model")
-    new_X, low_importance_features = low_impoortance(X, y)
+    new_X, low_importance_features = low_importance(X, y)
     lgbm_model = LGBMClassifier()
     lgbm_final = lgbm_model.set_params(colsample_bytree=0.7,
                                        max_depth=10,
@@ -196,7 +196,7 @@ def final_model(X, y):
 
 
 def main():
-    df = pd.read_csv("C:\\Users\\User\Desktop\Project\Hotel Reservations.csv")
+    df = pd.read_csv('data/Hotel Reservations.csv')
     X, y = booking_stat_data_prep(df)
     final_modell = final_model(X, y)
     joblib.dump(final_modell, "final_modell.pkl")
